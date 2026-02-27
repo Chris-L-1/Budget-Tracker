@@ -1,20 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Budget Tracker</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="Nav-container">
-    <nav class="Nav-class">
-      <h1>Budgetly</h1>
-      <button aria-label="Switch to dark mode"> <img src="" alt="dark mode image"></button>
-    </nav>
-  </header>
-  <main>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
 
-  </main>
-</body>
+    <header class="nav-container">
+      <nav class="nav">
+
+        <h1>Budgetly</h1>
+
+        <button id="theme-toggle" aria-label="Switch to dark mode">🌙</button>
+
+      </nav>
+    </header>
+
+    <main aria-label="Budget Tracker Application">
+
+      <section class="summary">
+        <h2 class="sr-only">Financial Summary</h2>
+        <div class="cards-wrapper">
+
+          <div id="income">
+            <span>
+              💰
+            </span>
+            <h3>Total Income</h3>
+            <p id="income-amount">R 0.00</p>
+          </div>
+
+          <div id="total-expense">
+            <span>
+              💸
+            </span>
+            <h3>Total Expense</h3>
+            <p id="expense-amount">R 0.00</p>
+          </div>
+
+          <div id="balance">
+            <span>
+              📊
+            </span>
+            <h3>Balance</h3>
+            <p id="balance-amount">R 0.00</p>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="dashboard">
+        <div class="dashboard-wrapper">
+          <div class="add-transaction">
+            <h2>Add Transaction</h2>
+            <form id="transaction-form">
+              <label for="description">Description</label>
+              <input type="text" id="description" name="description" required>
+
+              <label for="amount">Amount</label>
+              <input type="number" name="amount" id="amount" required>
+
+              <label for="type">Income/Expense</label>
+              <select name="type" id="type">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+              </select>
+
+              <label for="category">Category</label>
+              <select name="category" id="category">
+                <!-- JavaScript will populate these options dynamically -->
+              </select>
+
+              <!-- Button to submit -->
+              <button type="submit">Add Transaction</button>
+
+            </form>
+          </div>
+          <div class="transaction-history">
+            <h2>Transaction History</h2>
+
+            <label for="filter">Filter</label>
+            <select name="filter" id="filter">
+              <option value="all">All</option>
+              <option value="housing-and-rent">Housing & Rent</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="food-and-groceries">Food & Groceries</option>
+              <option value="transport">Transport</option>
+              <option value="education">Education</option>
+              <option value="shopping">Shopping</option>
+              <option value="utilities">Utilities</option>
+              <option value="salary">Salary</option>
+              <option value="freelance">Freelance</option>
+              <option value="other">Other</option>
+            </select>
+
+            <ul id="transaction-list"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy;2026 Budgetly | Built by Chris Lufuily | <a
+          href="https://github.com/Chris-L-1"
+          target="_blank"
+          aria-label="Visit Chris Lufuily's GitHub profile">GitHub</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
 </html>
