@@ -5,25 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Tracker</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet">
   </head>
   <body>
 
     <header class="nav-container">
       <nav class="nav">
-
         <h1>Budgetly</h1>
-
-        <button id="theme-toggle" aria-label="Switch to dark mode">🌙</button>
-
+        <button id="theme-toggle" aria-label="Switch to dark mode" class="toggle">🌙</button>
       </nav>
     </header>
 
     <main aria-label="Budget Tracker Application">
 
       <section class="summary">
-        <h2 class="sr-only">Financial Summary</h2>
-        <div class="cards-wrapper">
 
+        <h2 class="sr-only">Financial Summary</h2>
+
+        <div class="cards-wrapper">
           <div id="income">
             <span>
               💰
@@ -53,9 +56,13 @@
 
       <section class="dashboard">
         <div class="dashboard-wrapper">
+
           <div class="add-transaction">
+
             <h2>Add Transaction</h2>
+
             <form id="transaction-form">
+
               <label for="description">Description</label>
               <input type="text" id="description" name="description" required>
 
@@ -63,7 +70,7 @@
               <input type="number" name="amount" id="amount" required>
 
               <label for="type">Income/Expense</label>
-              <select name="type" id="type">
+              <select name="type" id="type" required>
                 <option value="income">Income</option>
                 <option value="expense">Expense</option>
               </select>
@@ -78,7 +85,9 @@
 
             </form>
           </div>
+
           <div class="transaction-history">
+
             <h2>Transaction History</h2>
 
             <label for="filter">Filter</label>
@@ -95,8 +104,8 @@
               <option value="freelance">Freelance</option>
               <option value="other">Other</option>
             </select>
-
             <ul id="transaction-list"></ul>
+
           </div>
         </div>
       </section>
