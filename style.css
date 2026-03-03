@@ -1,31 +1,311 @@
-.nav-container{
-  background-color: rgb(53, 168, 255);
-  box-shadow:  10px 9px 5px #aaaaaa;
-  border-radius: 12px;
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+/* Base body background */
+body {
+  background-color: #e0e0e0;
 }
 
-.nav{
+/* Visually hidden but accessible to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Global input and select styling */
+input, select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 5px;
+  border: 2px solid rgb(96, 96, 96);
+}
+
+/* Global heading style - centered with shadow */
+h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  box-shadow: 10px 4px 6px #aaaaaa;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+/* Outer navbar wrapper with rounded border */
+.nav-container {
+  border-radius: 12px;
+  border: 2px solid black;
+}
+
+/* Inner navbar - logo on left, toggle on right */
+.nav {
   display: flex;
   align-items: center;
   height: 90px;
   justify-content: space-between;
   padding: 30px;
-  margin:0%;
+  margin: 0;
   border-radius: 100px;
 }
 
-.logo{
+/* App name logo styling */
+.logo {
   font-size: 30px;
-  color: rgb(255, 0, 0);
+  color: rgb(55, 162, 255);
   background-color: white;
   padding: 20px;
   border-radius: 18px;
-  box-shadow: 2px 3px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-#theme-toggle{
+/* Dark/light mode toggle button */
+#theme-toggle {
   height: 60px;
   width: 90px;
   background-color: rgb(255, 255, 255);
   border-radius: 12px;
+  cursor: pointer;
+}
+
+/* ============================================
+   SUMMARY CARDS SECTION
+   ============================================ */
+
+/* Summary section outer wrapper */
+.summary {
+  margin-top: 15px;
+  border: 2px solid rgb(62, 62, 62);
+  background-color: rgb(255, 255, 255);
+}
+
+/* Screen reader only heading container height */
+.summary h2 {
+  height: 46px;
+  margin: 0;
+}
+
+/* Cards container - arranges 3 cards in a row */
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 23px;
+  height: 190px;
+  align-items: center;
+  margin: 4px;
+  margin-top: 10px;
+  padding: 10px 40px;
+}
+
+/* Fixed size for each individual card */
+.cards-wrapper div {
+  height: 170px;
+  width: 300px;
+}
+
+/* Income, Expense and Balance card styling */
+#total-expense,
+#balance,
+#income {
+  display: grid;
+  place-items: center;
+  border: 3px solid black;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+}
+
+/* ============================================
+   DASHBOARD - TWO PANEL LAYOUT
+   ============================================ */
+
+/* Outer dashboard wrapper - two panels side by side */
+.dashboard-wrapper {
+  background-color: rgb(255, 255, 255);
+  margin-top: 10px;
+  height: 500px;
+  display: flex;
+  gap: 2px;
+  justify-content: space-between;
+}
+
+/* ============================================
+   ADD TRANSACTION PANEL - LEFT
+   ============================================ */
+
+/* Left panel outer wrapper */
+.add-transaction {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  margin: 1px;
+  padding: 20px;
+  flex: 1;
+}
+
+/* Form - stacks all fields vertically */
+#transaction-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 45px;
+}
+
+/* Groups each label directly above its input */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Submit button base styles */
+#transaction-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: rgb(55, 162, 255);
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Submit button hover - darker blue with shadow */
+#transaction-form button:hover {
+  background-color: rgb(30, 130, 220);
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(55, 162, 255, 0.4);
+}
+
+/* ============================================
+   TRANSACTION HISTORY PANEL - RIGHT
+   ============================================ */
+
+/* Right panel outer wrapper */
+.transaction-history {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+  border: 2px solid black;
+  padding: 20px;
+  margin: 1px;
+  flex: 2;
+}
+
+/* Transaction History panel heading */
+.transaction-history h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Filter label and dropdown side by side */
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+}
+
+/* Filter dropdown width */
+.transaction-history select {
+  width: 50%;
+  height: 40px;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+/* Footer wrapper - horizontally centered content */
+.footer {
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 2px solid black;
+}
+
+/* GitHub link - removes default underline */
+.footer a {
+  text-decoration: none;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid black;
+  margin: 2px;
+  padding: 4px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - TABLET (max 768px)
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* Stack dashboard panels vertically */
+  .dashboard-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* Reduce card spacing and padding */
+  .cards-wrapper {
+    gap: 18px;
+    padding: 18px;
+    height: auto;
+  }
+
+  /* Reduce navbar height and padding */
+  .nav {
+    height: 70px;
+    padding: 20px;
+  }
+
+  /* Full width panels when stacked */
+  .add-transaction {
+    width: 100%;
+  }
+
+  .transaction-history {
+    width: 100%;
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE (max 480px)
+   ============================================ */
+@media (max-width: 480px) {
+
+  /* Stack cards vertically on small screens */
+  .cards-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* Full width cards when stacked */
+  .cards-wrapper div {
+    width: 100%;
+  }
+
+  /* Reduce form padding on small screens */
+  #transaction-form {
+    padding: 20px;
+  }
+
+  /* Further reduce navbar height */
+  .nav {
+    height: 60px;
+  }
+
+  /* Reduce logo font size */
+  .logo {
+    font-size: 22px;
+  }
 }

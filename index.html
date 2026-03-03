@@ -16,7 +16,8 @@
     <header class="nav-container">
       <nav class="nav">
         <h1 class="logo">Budgetly</h1>
-        <button id="theme-toggle" aria-label="Switch to dark mode" class="toggle">🌙</button>
+        <button id="theme-toggle" aria-label="Switch to dark mode"
+          class="toggle">🌙</button>
       </nav>
     </header>
 
@@ -63,25 +64,35 @@
 
             <form id="transaction-form">
 
-              <label for="description">Description</label>
-              <input type="text" id="description" name="description" required>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" required>
+              </div>
 
-              <label for="amount">Amount</label>
-              <input type="number" name="amount" id="amount" required>
+              <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" name="amount" id="amount" required>
+              </div>
 
-              <label for="type">Income/Expense</label>
-              <select name="type" id="type" required>
-                <option value="income">Income</option>
-                <option value="expense">Expense</option>
-              </select>
+              <div class="form-group">
+                <label for="type">Income/Expense</label>
+                <select name="type" id="type" required>
+                  <option value="income">Income</option>
+                  <option value="expense">Expense</option>
+                </select>
+              </div>
 
-              <label for="category">Category</label>
-              <select name="category" id="category">
-                <!-- JavaScript will populate these options dynamically -->
-              </select>
+              <div class="form-group">
+                <label for="category">Category</label>
+                <select name="category" id="category">
+                  <!-- JavaScript will populate these options dynamically -->
+                </select>
+
+              </div>
 
               <!-- Button to submit -->
-              <button type="submit">Add Transaction</button>
+              <button class="transaction-form button" type="submit">Add
+                Transaction</button>
 
             </form>
           </div>
@@ -90,20 +101,23 @@
 
             <h2>Transaction History</h2>
 
-            <label for="filter">Filter</label>
-            <select name="filter" id="filter">
-              <option value="all">All</option>
-              <option value="housing-and-rent">Housing & Rent</option>
-              <option value="healthcare">Healthcare</option>
-              <option value="food-and-groceries">Food & Groceries</option>
-              <option value="transport">Transport</option>
-              <option value="education">Education</option>
-              <option value="shopping">Shopping</option>
-              <option value="utilities">Utilities</option>
-              <option value="salary">Salary</option>
-              <option value="freelance">Freelance</option>
-              <option value="other">Other</option>
-            </select>
+            <div class="filter-group">
+              <label for="filter">Filter</label>
+              <select name="filter" id="filter">
+                <option value="all">All</option>
+                <option value="housing-and-rent">Housing & Rent</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="food-and-groceries">Food & Groceries</option>
+                <option value="transport">Transport</option>
+                <option value="education">Education</option>
+                <option value="shopping">Shopping</option>
+                <option value="utilities">Utilities</option>
+                <option value="salary">Salary</option>
+                <option value="freelance">Freelance</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
             <ul id="transaction-list"></ul>
 
           </div>
