@@ -36,6 +36,14 @@ const expenseCategories =[
   {value:"others", label:"Others"}
 ]
 
+/**
+ * Populates the category dropdown based on the selected transaction type.
+ * Clears existing options and dynamically fills the select input
+ * with either income or expense categories.
+ *
+* @param {"income" | "expense"} type - Transaction type
+ */
+
 function populateCategories(type) {
 
   categoryInput.innerHTML=""
