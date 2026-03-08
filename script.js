@@ -89,3 +89,50 @@ form.addEventListener("submit", function (event) {
 });
 
 
+// Render all transactions to the transaction history panel
+function displayTransactions() {
+   // Clear existing list before re-rendering
+    transactionList.innerHTML = "";
+
+      // Show message if no transactions exist
+    if (transactions.length === 0) {
+        transactionList.innerHTML = "<li>No transactions yet</li>";
+        return;
+    }
+
+     // Loop through each transaction and create a list item
+    transactions.forEach(function(transaction) {
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span>${transaction.description}</span>
+            <span>${transaction.category}</span>
+            <span>${transaction.date}</span>
+            <span class="${transaction.type === "income" ? "income" : "expense"}">
+                ${transaction.type === "income" ? "+" : "-"}R${transaction.amount.toFixed(2)}
+            </span>
+            <button onclick="deleteTransaction(${transaction.id})">✕</button>
+        `;
+        transactionList.appendChild(li);
+    });
+}
+
+// Calculate and update the three summary cards
+function updateSummary (){
+    // Total all income transactions
+  const income = transactions
+  .filter (t => t.type === "income")
+  .reduce((total , t) => total + t.amount, 0);
+
+  // Total all expense transactions
+  const expenses = transactions
+  .filter(t => t.type === "expense")
+  .reduce((total, t) => total + t.amount, 0);
+
+    // Calculate balance
+  const balance = income - expenses;
+
+  // Update the DOM elements with formatted values
+  incomeAmount.textContent = "R " + income.toFixed(2);
+  expenseAmount.textContent= "R " + expenses.toFixed(2);
+  balanceAmount.textContent= "R " + balance.toFixed(2);
+}
