@@ -65,3 +65,27 @@ typeInput.addEventListener("change" , function(){
 
 //Populate categories on page load
 populateCategories(typeInput.value)
+
+
+//Handle form submission - create and store new transaction
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const transaction ={
+
+    id:Date.now(),
+    description:descriptionInput.value.trim(),
+    amount:parseFloat(amountInput.value),
+    type:typeInput.value,
+    category:categoryInput.value,
+    date:new Date().toLocaleDateString("en-ZA")
+  };
+
+  transactions.push(transaction);
+  displayTransactions();
+  updateSummary();
+  form.reset();
+  populateCategories(typeInput.value)
+});
+
+
