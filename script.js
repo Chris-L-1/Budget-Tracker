@@ -136,3 +136,11 @@ function updateSummary (){
   expenseAmount.textContent= "R " + expenses.toFixed(2);
   balanceAmount.textContent= "R " + balance.toFixed(2);
 }
+
+// Remove a transaction by id and refresh the display
+function deleteTransaction (id){
+  transactions = transactions.filter(t => t.id !== id);
+  displayTransactions();
+  updateSummary();
+}
+
