@@ -82,6 +82,7 @@ form.addEventListener("submit", function (event) {
   };
 
   transactions.push(transaction);
+  saveTransactions();
   displayTransactions();
   updateSummary();
   form.reset();
@@ -140,6 +141,7 @@ function updateSummary (){
 // Remove a transaction by id and refresh the display
 function deleteTransaction (id){
   transactions = transactions.filter(t => t.id !== id);
+  saveTransactions();
   displayTransactions();
   updateSummary();
 }
@@ -178,3 +180,25 @@ if (filterd.length === 0){
     });
 
 });
+
+// Save transactions to localStorage
+
+function saveTransactions(){
+  localStorage.setItem("transactions" , JSON.stringify(transactions));
+
+}
+
+// Load transactions from localStorage
+function loadTransactions(){
+  const stored = localStorage.getItem("transactions")
+  if (stored){
+    transactions = JSON.parse(stored);
+
+  }
+  displayTransactions();
+  updateSummary();
+}
+
+loadTransactions();
+
+
