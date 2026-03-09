@@ -35,8 +35,9 @@ body {
   background-color: var(--body-background-color);
   color: var(--body-text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 /* Visually hidden but accessible to screen readers */
 .sr-only {
   position: absolute;
@@ -77,6 +78,8 @@ h2 {
 .nav-container {
   border-radius: 12px;
   border: 2px solid var(--border-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  margin-bottom: 15px;
 }
 
 /* Inner navbar - logo on left, toggle on right */
@@ -140,13 +143,37 @@ h2 {
   padding: 10px 40px;
 }
 
+/* Color the amount not the title */
+#income p {
+    color: var(--income-text-color);
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+#total-expense p {
+    color: var(--expense-text-color);
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+#balance p {
+    color: var(--main-color);
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
 /* Fixed size for each individual card */
 .cards-wrapper div {
   height: 170px;
   width: 300px;
-  background-color:var(--card-background-color);
+  background-color: var(--card-background-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition: transform 0.2s ease;
 }
 
+.cards-wrapper div:hover {
+  transform: translateY(-3px);
+}
 /* Income, Expense and Balance card styling */
 #total-expense,
 #balance,
@@ -166,7 +193,8 @@ h2 {
 .dashboard-wrapper {
   background-color: var(--panel-background-color);
   margin-top: 10px;
-  height: 500px;
+  min-height: 500px;
+  height: auto;
   display: flex;
   gap: 2px;
   justify-content: space-between;
@@ -244,6 +272,7 @@ h2 {
 .transaction-history h2 {
   font-size: 1.5rem;
   font-weight: 700;
+  box-shadow: none;
 }
 
 /* Filter label and dropdown side by side */
@@ -256,8 +285,72 @@ h2 {
 
 /* Filter dropdown width */
 .transaction-history select {
-  width: 550%;
+  width: 60%;
   height: 40px;
+}
+
+/* ============================================
+   TRANSACTION LIST ITEMS
+   ============================================ */
+
+/* Remove default list styling */
+#transaction-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Each transaction row */
+#transaction-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  background-color: var(--card-background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  gap: 10px;
+  box-shadow: 0 1px 4px var(--shadow-color);
+  transition: transform 0.2s ease;
+}
+
+/* Subtle hover effect on each row */
+#transaction-list li:hover {
+  transform: translateX(4px);
+}
+
+/* Income amount color */
+#transaction-list li .income {
+  color: var(--income-text-color);
+  font-weight: 700;
+}
+
+/* Expense amount color */
+#transaction-list li .expense {
+  color: var(--expense-text-color);
+  font-weight: 700;
+}
+
+/* Delete button styling */
+#transaction-list li button {
+  background-color: transparent;
+  border: 1px solid var(--expense-text-color);
+  color: var(--expense-text-color);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* Delete button hover */
+#transaction-list li button:hover {
+  background-color: var(--expense-text-color);
+  color: white;
 }
 
 /* ============================================
@@ -269,19 +362,24 @@ h2 {
   display: flex;
   height: 50px;
   justify-content: center;
+  align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border: 2px solid var(--border-color);
+  margin-top: 15px;
+  border-radius: 12px;
+  background-color: var(--card-background-color);
+  color: var(--body-text-color);
 }
 
-/* GitHub link - removes default underline */
 .footer a {
   text-decoration: none;
-  background-color: var(--card-background-color);
-  border: 2px solid var(--border-color);
+  color: var(--main-color);
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
   margin: 2px;
   padding: 4px;
 }
-
 /* ============================================
    RESPONSIVE DESIGN - TABLET (max 768px)
    ============================================ */

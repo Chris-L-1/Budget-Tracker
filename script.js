@@ -89,6 +89,12 @@ form.addEventListener("submit", function (event) {
   populateCategories(typeInput.value)
 });
 
+// Convert category value to human readable label
+function getCategoryLabel(value) {
+    const allCategories = [...incomeCategories, ...expenseCategories];
+    const found = allCategories.find(cat => cat.value === value);
+    return found ? found.label : value;
+}
 
 // Render all transactions to the transaction history panel
 function displayTransactions() {
@@ -106,7 +112,7 @@ function displayTransactions() {
         const li = document.createElement("li");
         li.innerHTML = `
             <span>${transaction.description}</span>
-            <span>${transaction.category}</span>
+            <span>${getCategoryLabel(transaction.category)}</span>
             <span>${transaction.date}</span>
             <span class="${transaction.type === "income" ? "income" : "expense"}">
                 ${transaction.type === "income" ? "+" : "-"}R${transaction.amount.toFixed(2)}
@@ -169,7 +175,7 @@ if (filterd.length === 0){
         const li = document.createElement("li");
         li.innerHTML = `
             <span>${transaction.description}</span>
-            <span>${transaction.category}</span>
+           <span>${getCategoryLabel(transaction.category)}</span>
             <span>${transaction.date}</span>
             <span class="${transaction.type === "income" ? "income" : "expense"}">
                 ${transaction.type === "income" ? "+" : "-"}R${transaction.amount.toFixed(2)}
