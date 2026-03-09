@@ -144,3 +144,37 @@ function deleteTransaction (id){
   updateSummary();
 }
 
+filterSelect.addEventListener ("change" , function(){
+
+  const filterValue = filterSelect.value;
+
+
+if (filterValue === "all"){
+  displayTransactions();
+  return;
+}
+transactionList.innerHTML="";
+
+const filterd = transactions.filter(t => t.category === filterValue);
+
+
+if (filterd.length === 0){
+  transactionList.innerHTML = "<li>No transactions found</li>";
+  return;
+}
+
+  filterd.forEach(function(transaction) {
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span>${transaction.description}</span>
+            <span>${transaction.category}</span>
+            <span>${transaction.date}</span>
+            <span class="${transaction.type === "income" ? "income" : "expense"}">
+                ${transaction.type === "income" ? "+" : "-"}R${transaction.amount.toFixed(2)}
+            </span>
+            <button onclick="deleteTransaction(${transaction.id})">✕</button>
+        `;
+        transactionList.appendChild(li);
+    });
+
+});
